@@ -474,6 +474,7 @@ def parseAgentArgs(str):
     return opts
 
 def readCommand( argv ):
+    print(argv)
     """
     Processes the command used to run pacman from the command line.
     """
