@@ -120,8 +120,8 @@ class GameState:
         # Book keeping
         state.data._agentMoved = agentIndex
         state.data.score += state.data.scoreChange
-        GameState.explored.add(self)
-        GameState.explored.add(state)
+        #GameState.explored.add(self)
+        #GameState.explored.add(state)
         return state
 
     def getLegalPacmanActions( self ):
@@ -293,7 +293,7 @@ class ClassicGameRules:
         game.gameOver = True
 
     def lose( self, state, game ):
-        if not self.quiet: print("Pacman died! Score: %d" % state.data.score)
+        #if not self.quiet: print("Pacman died! Score: %d" % state.data.score)
         game.gameOver = True
 
     def getProgress(self, game):
@@ -474,6 +474,7 @@ def parseAgentArgs(str):
     return opts
 
 def readCommand( argv ):
+    print(argv)
     """
     Processes the command used to run pacman from the command line.
     """
@@ -658,10 +659,10 @@ def runGames( layout, pacman, ghosts, display, numGames, record, numTraining = 0
         scores = [game.state.getScore() for game in games]
         wins = [game.state.isWin() for game in games]
         winRate = wins.count(True)/ float(len(wins))
-        print('Average Score:', sum(scores) / float(len(scores)))
-        print('Scores:       ', ', '.join([str(score) for score in scores]))
-        print('Win Rate:      %d/%d (%.2f)' % (wins.count(True), len(wins), winRate))
-        print('Record:       ', ', '.join([ ['Loss', 'Win'][int(w)] for w in wins]))
+        #print('Average Score:', sum(scores) / float(len(scores)))
+        #print('Scores:       ', ', '.join([str(score) for score in scores]))
+        #print('Win Rate:      %d/%d (%.2f)' % (wins.count(True), len(wins), winRate))
+        #print('Record:       ', ', '.join([ ['Loss', 'Win'][int(w)] for w in wins]))
 
     return games
 
