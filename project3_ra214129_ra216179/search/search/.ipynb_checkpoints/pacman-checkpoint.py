@@ -289,7 +289,7 @@ class ClassicGameRules:
         if state.isLose(): self.lose(state, game)
 
     def win( self, state, game ):
-        #if not self.quiet: print("Pacman emerges victorious! Score: %d" % state.data.score)
+        if not self.quiet: print("Pacman emerges victorious! Score: %d" % state.data.score)
         game.gameOver = True
 
     def lose( self, state, game ):
@@ -474,7 +474,7 @@ def parseAgentArgs(str):
     return opts
 
 def readCommand( argv ):
-    #print(argv)
+    print(argv)
     """
     Processes the command used to run pacman from the command line.
     """
